@@ -1,5 +1,7 @@
-export default function ({ store, redirect }) {
+export default function({ store, redirect }) {
     if (!store.state.auth.loggedIn) {
-        return redirect("/");
+      console.log(store.state.auth.loggedIn);
+      return redirect("/login");
     }
-};
+  }
+  

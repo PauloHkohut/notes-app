@@ -1,10 +1,10 @@
 <template>
-    <div class="container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-7 d-flex vh-100 justify-content-center">
         <div class="col-md-5 align-self-center">
-          <h1 class="text-center mb-5">Notes App</h1>
-          <p class="text-center">Informe os dados abaixo para acessar</p>
+          <h1>Notes App</h1>
+          <p>Informe os dados abaixo para acessar</p>
 
           <b-form @submit.prevent="login">
             <b-form-group>
@@ -45,7 +45,7 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$auth.loginWith("local", {
+        await this.$auth.loginWith("local", {
           data: {
             email: this.email,
             senha: this.senha
@@ -54,7 +54,7 @@ export default {
 
         this.$router.push("/");
       } catch (e) {
-        this.error = e.response.data.message;
+        console.log(e);
       }
     }
   }

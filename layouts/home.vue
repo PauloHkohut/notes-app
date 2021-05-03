@@ -29,9 +29,11 @@ export default {
       return this.$store.state.auth.user;
     },
     primeiroNome() {
-      const [nome] = this.usuario.nome.split(" ");
+      if (this.usuario) {
+        const [nome] = this.usuario.nome.split(" ");
 
-      return nome;
+        return nome;
+      }
     }
   },
   methods: {
@@ -42,3 +44,5 @@ export default {
   }
 };
 </script>
+
+<style></style>
