@@ -73,14 +73,15 @@ export default {
           nome: this.nome,
           email: this.email
         };
-
         if (this.senha) {
           data = { ...data, senha: this.senha };
         }
 
-        await this.$axios.put(`usuario/${this.usuario.id}`, data);
-
+        const usuarioSalvo = await this.$axios.put(`usuario`, data);
+        await this.$auth.setUser(usuarioSalvo.data);
+        
         this.$router.push("/");
+        
       } catch (e) {
         console.log(e);
       }
