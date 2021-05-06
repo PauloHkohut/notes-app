@@ -26,6 +26,16 @@
             </b-form-group>
 
             <b-button block type="submit" variant="primary">Acessar</b-button>
+
+            <b-form-group>
+              <b-form-input
+                v-model="nome"
+                type="text"
+                placeholder="Ainda não tem conta?"
+              ></b-form-input>
+              <b-button type="button" variant="primary">Cadastre-se</b-button>
+            </b-form-group>
+
           </b-form>
         </div>
       </div>
@@ -39,7 +49,7 @@ export default {
   data() {
     return {
       email: null,
-      senha: null
+      senha: null,
     };
   },
   methods: {
@@ -48,16 +58,16 @@ export default {
         await this.$auth.loginWith("local", {
           data: {
             email: this.email,
-            senha: this.senha
-          }
+            senha: this.senha,
+          },
         });
 
         this.$router.push("/");
       } catch (e) {
         console.log(e);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
