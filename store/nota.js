@@ -5,6 +5,9 @@ export const state = () => ({
 export const mutations = {
   SET_LIST(state, notas) {
     state.list = notas;
+  },
+  ADD(state, nota) {
+    state.list.push(nota);
   }
 };
 
@@ -19,5 +22,5 @@ export const actions = {
     } catch (e) {
       console.log(e);
     }
-  }
+  },
 };

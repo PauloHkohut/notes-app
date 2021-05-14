@@ -27,15 +27,18 @@
 
             <b-button block type="submit" variant="primary">Acessar</b-button>
 
-            <b-form-group>
-              <b-form-input
-                v-model="nome"
+            <div class="input-group mb-3 mt-2">
+              <b-input
                 type="text"
                 placeholder="Ainda não tem conta?"
-              ></b-form-input>
-              <b-button type="button" variant="primary">Cadastre-se</b-button>
-            </b-form-group>
-
+                readonly
+              ></b-input>
+              <div class="input-group-append">
+                <b-button type="button" variant="primary" to="../registro"
+                  >Cadastre-se</b-button
+                >
+              </div>
+            </div>
           </b-form>
         </div>
       </div>
@@ -63,6 +66,7 @@ export default {
         });
 
         this.$router.push("/");
+
       } catch (e) {
         console.log(e);
       }

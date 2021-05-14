@@ -8,6 +8,7 @@
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown :text="primeiroNome" right>
             <b-dropdown-item href="perfil">Perfil</b-dropdown-item>
+            <b-dropdown-item href="registro">Registro</b-dropdown-item> 
             <b-dropdown-item href="#" @click.prevent="logout"
               >Sair</b-dropdown-item
             >

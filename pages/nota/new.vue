@@ -45,6 +45,11 @@ export default {
         tags: []
       }
     };
+  },
+  methods: {
+    async adicionar() {
+      
+    }
   }
 };
 </script>
