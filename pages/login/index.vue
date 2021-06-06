@@ -39,12 +39,8 @@ export default {
   data() {
     return {
       email: null,
-      senha: null,
+      senha: null
     };
-
-    head: {
-      title: "Notes App"
-    }
   },
   methods: {
     async login() {
@@ -52,16 +48,16 @@ export default {
         await this.$auth.loginWith("local", {
           data: {
             email: this.email,
-            senha: this.senha,
-          },
+            senha: this.senha
+          }
         });
 
         this.$router.push("/");
       } catch (e) {
         console.log(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

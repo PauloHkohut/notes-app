@@ -36,17 +36,14 @@ export default {
 
         return nome;
       }
-    },
+    }
   },
   methods: {
     async logout() {
       await this.$auth.logout();
       this.$router.push("/login");
-    },
-  },
-  head: {
-    title: "Notes App",
-  },
+    }
+  }
 };
 </script>
 

@@ -48,12 +48,9 @@ export default {
       usuario: {
         nome: null,
         email: null,
-        senha: null,
-      },
+        senha: null
+      }
     };
-    head: {
-      title: "Notes App"
-    }
   },
   methods: {
     async registrar() {
@@ -64,8 +61,8 @@ export default {
       } catch (e) {
         console.log(e);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
