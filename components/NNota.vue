@@ -53,7 +53,7 @@
 export default {
   name: "n-nota",
   props: {
-    id: [Number, String]
+    id: [Number, String],
   },
   data() {
     return {
@@ -66,14 +66,14 @@ export default {
         criadoEm: null,
         atualizadoEm: null,
         checklists: [],
-        tags: []
-      }
+        tags: [],
+      },
     };
   },
   computed: {
     notaObservada() {
       return JSON.parse(JSON.stringify(this.nota));
-    }
+    },
   },
   watch: {
     notaObservada: {
@@ -88,8 +88,8 @@ export default {
           this.esperandoAlteracao = true;
         }
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     compararNotas(novaNota, antigaNota) {
@@ -114,13 +114,16 @@ export default {
       this.nota = data;
 
       this.habilitarChecklist(this.nota.checklists.length > 0);
-    }
+    },
   },
   async mounted() {
     if (this.id) {
       await this.carregar();
     }
-  }
+  },
+  head: {
+    title: "Notes App",
+  },
 };
 </script>
 

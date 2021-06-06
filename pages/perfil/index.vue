@@ -58,20 +58,23 @@ export default {
     return {
       nome: null,
       email: null,
-      senha: null
+      senha: null,
     };
+    head: {
+      title: "Notes App"
+    }
   },
   computed: {
     usuario() {
       return this.$store.state.auth.user;
-    }
+    },
   },
   methods: {
     async salvar() {
       try {
         let data = {
           nome: this.nome,
-          email: this.email
+          email: this.email,
         };
 
         if (this.senha) {
@@ -86,12 +89,12 @@ export default {
       } catch (e) {
         console.log(e);
       }
-    }
+    },
   },
   mounted() {
     this.nome = this.usuario.nome;
     this.email = this.usuario.email;
-  }
+  },
 };
 </script>
 

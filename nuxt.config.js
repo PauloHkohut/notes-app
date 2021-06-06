@@ -17,7 +17,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/png', href: '/icon.png' }
     ]
   },
 
@@ -42,7 +42,8 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     "@nuxtjs/axios",
-    "@nuxtjs/auth"
+    "@nuxtjs/auth",
+    "@nuxtjs/onesignal"
   ],
 
   bootstrapVue: {
@@ -51,7 +52,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: { },
+  build: {},
 
   axios: {
     baseURL: "https://localhost:4443"
@@ -82,6 +83,16 @@ export default {
       short_name: "Notes App",
       description: "Aplicativo para anotações do curso de TADS",
       lang: "pt-br"
+    }
+  },
+  oneSignal: {
+    init: {
+      appId: "",
+      allowLocalhostAsSecureOrigin: true,
+      cdn: true,
+      welcomeNotification: {
+        disable: true
+      }
     }
   }
 
