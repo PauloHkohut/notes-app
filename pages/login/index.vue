@@ -67,6 +67,6 @@ export default {
 <style>
 .cover {
   /*background: url("https://url.gratis/wftZc") center center;*/
-  background: url("/static/cover.png") center center;
+  background: url("/cover.png") center center;
 }
 </style>
