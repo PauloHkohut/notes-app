@@ -36,6 +36,9 @@
 <script>
 export default {
   layout: "externo",
+  head: {
+    title: "Login - Notes App"
+  },
   data() {
     return {
       email: null,
@@ -63,6 +66,7 @@ export default {
 
 <style>
 .cover {
-  background: url("https://url.gratis/wftZc") center center;
+  /*background: url("https://url.gratis/wftZc") center center;*/
+  background: url("/static/cover.png") center center;
 }
 </style>

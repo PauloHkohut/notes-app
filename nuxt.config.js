@@ -21,8 +21,11 @@ export default {
     ]
   },
 
+  pageTransition: "fade",
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    "~/assets/css/main.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -91,7 +94,7 @@ export default {
       allowLocalhostAsSecureOrigin: true,
       cdn: true,
       welcomeNotification: {
-        disable: true
+        disable: false
       }
     }
   }
