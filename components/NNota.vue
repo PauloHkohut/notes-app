@@ -46,7 +46,7 @@
 export default {
   name: "n-nota",
   props: {
-    id: [Number, String]
+    id: [Number, String],
   },
   data() {
     return {
@@ -59,14 +59,14 @@ export default {
         criadoEm: null,
         atualizadoEm: null,
         checklists: [],
-        tags: []
-      }
+        tags: [],
+      },
     };
   },
   computed: {
     notaObservada() {
       return JSON.parse(JSON.stringify(this.nota));
-    }
+    },
   },
   watch: {
     notaObservada: {
@@ -81,8 +81,8 @@ export default {
           this.esperandoAlteracao = true;
         }
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   methods: {
     compararNotas(novaNota, antigaNota) {
@@ -102,18 +102,24 @@ export default {
       await this.carregar();
     },
     async carregar() {
-      const { data } = await this.$axios.get(`nota/${this.id}`);
+      if (this.$nuxt.isOffline) {
+        this.$store.list();
+      }
 
-      this.nota = data;
+      if (this.$nuxt.isOnline) {
+        const { data } = await this.$axios.get(`nota/${this.id}`);
 
-      this.habilitarChecklist(this.nota.checklists.length > 0);
-    }
+        this.nota = data;
+
+        this.habilitarChecklist(this.nota.checklists.length > 0);
+      }
+    },
   },
   async mounted() {
     if (this.id) {
       await this.carregar();
     }
-  }
+  },
 };
 </script>
 

@@ -41,9 +41,15 @@ export const actions = {
   },
   async edit({ commit }, nota) {
     try {
-      const { data } = await this.$axios.put(`nota/${nota.id}`, nota);
 
-      commit("SET", data);
+      if (this.$nuxt.isOnline) {
+        const { data } = await this.$axios.put(`nota/${nota.id}`, nota);
+
+        commit("SET", data);
+      }else if (this.$nuxt.isOffline){
+        commit("SET", data);
+      }
+
 
       return data;
     } catch (e) {
