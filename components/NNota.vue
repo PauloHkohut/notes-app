@@ -48,6 +48,8 @@ export default {
   props: {
     id: [Number, String],
   },
+
+
   data() {
     return {
       exibirChecklist: false,
@@ -67,6 +69,7 @@ export default {
     notaObservada() {
       return JSON.parse(JSON.stringify(this.nota));
     },
+   
   },
   watch: {
     notaObservada: {
@@ -103,9 +106,16 @@ export default {
     },
     async carregar() {
       if (this.$nuxt.isOffline) {
-        this.$store.list();
-      }
+      
 
+        const { data } = await this.$axios.get(`nota/${this.id}`);
+
+        this.nota = data;
+
+        this.habilitarChecklist(this.nota.checklists.length > 0);
+
+        
+      }
       if (this.$nuxt.isOnline) {
         const { data } = await this.$axios.get(`nota/${this.id}`);
 
